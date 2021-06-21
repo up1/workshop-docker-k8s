@@ -13,7 +13,15 @@
 ## Working with Docker compose
 
 ```
-docker-compose up
+$docker-compose build
+$docker-compose up -d
+$docker-compose ps
+
+db                             docker-entrypoint.sh postgres    Up      5432/tcp
+redis                          docker-entrypoint.sh redis ...   Up      0.0.0.0:49454->6379/tcp
+workshop-docker-k8s_result_1   docker-entrypoint.sh nodem ...   Up      0.0.0.0:5858->5858/tcp,:::5858->5858/tcp, 0.0.0.0:5001->80/tcp,:::5001->80/tcp
+workshop-docker-k8s_vote_1     python app.py                    Up      0.0.0.0:5000->80/tcp,:::5000->80/tcp
+workshop-docker-k8s_worker_1   java -XX:+UnlockExperiment ...   Up
 ```
 
 The app will be running at [http://localhost:5000](http://localhost:5000), and the results will be at [http://localhost:5001](http://localhost:5001).
